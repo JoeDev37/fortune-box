@@ -1,0 +1,149 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #11111b;
+    color: #cdd6f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    /* background-color: white; */
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat((2, 1fr));
+}
+
+h1 {
+    margin: 0;
+}
+
+.child1{
+    grid-column: 1 / 8;
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    /* align-items: flex-start; */
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+.child2 {
+    grid-column: 9 / 11;
+    background-color: #1e1e2e;
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.mlmlml {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mlmlml input {
+    background-color: #11111b;
+    color: #cdd6f4;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: 1px solid #b4befe;
+}
+
+.button {
+    /* background-color: red; */
+    grid-row: 10 / 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addBtn,
+#spin {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #11111b;
+    color: #cdd6f4;
+    cursor: pointer;
+    transition: all 0.01s ease-in-out;
+    margin: 10px;
+}
+
+#addBtn:hover {
+    opacity: 0.8;
+    padding: 20px;
+}
+
+#addBtn:hover {
+    opacity: 0.8;
+    padding: 20px;
+}
+
+
+
+
+
+
+
+.box {
+    background: #181825;
+    border-radius: 10px;
+    outline: 1px solid #cba6f7;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    position: relative;
+}
+
+/* close button */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #f38ba8;
+    color: #11111b;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0;             
+    transition: opacity 0.2s;
+}
+
+.box:hover .close-btn {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
