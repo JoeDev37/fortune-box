@@ -33,7 +33,8 @@ addBtn.addEventListener('click', () => {
     addSomething.classList.add('text');
     addSomething.textContent = input.value;
 
-    addSomething.style.margin = '5px'
+    addSomething.style.margin = '0'
+    addSomething.style.textAlign = 'center'
 
 
     if (input.value == '') {
@@ -51,26 +52,19 @@ addBtn.addEventListener('click', () => {
 });
 
 
-// spin.addEventListener('click', () => {
-//     // alert('Spinned')
-
-//     const boxes = document.querySelectorAll('selectedDiv')
-
-//     const randomBox = Math.floor(Math.random() * boxes.length);
-//     const selecctedBox = boxes[randomBox];
-
-//     // selecctedBox.classList.add('selected');
-
-//     // selecctedBox.remove();
-
-//     boxes.forEach(selecctedBox => selecctedBox.classList.remove('selected'));
-//     selecctedBox.classList.add('selected')
-
-//     console.log(selecctedBox.textContent)
-// })
-
 spin.addEventListener('click', () => {
-    alert('out of service')
+    const boxes = document.querySelectorAll('p');
+    if (boxes.length === 0) return;
+
+    const randomBox = Math.floor(Math.random() * boxes.length);
+    const selectedBox = boxes[randomBox];
+    
+    boxes.forEach(box => box.classList.remove('selected'));
+    selectedBox.classList.add('selected');
+
+    console.log("Selected box content:", selectedBox.textContent);
+
 });
+
 
 

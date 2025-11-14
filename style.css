@@ -98,11 +98,10 @@ h1 {
     padding: 20px;
 }
 
-
-
-
-
-
+#spin:hover {
+    opacity: 0.8;
+    padding: 20px;
+}
 
 .box {
     background: #181825;
@@ -134,8 +133,15 @@ h1 {
     opacity: 1;
 }
 
-
-
+.box .selected {
+    background-color: #cba6f7;
+    color: #11111b;
+    border-radius: 5px;
+    /* padding: 5px; */
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+}
 
 
 
