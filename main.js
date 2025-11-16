@@ -1,4 +1,5 @@
-console.log('Hello, World!')
+
+document.title = "fortune box";
 
 const spin = document.getElementById('spin');
 const addBtn = document.getElementById('addBtn');
@@ -21,12 +22,14 @@ addBtn.addEventListener('click', () => {
     })
 
     div.style.background = '#181825';
+    // div.style.color = '#cdd6f4'
     div.style.borderRadius = '10px';
     div.style.outline = '1px solid #cba6f7'
     div.style.width = '100px';
     div.style.height = '100px';
     div.style.margin = '10px';
-    div.style.overflowX = 'scroll';
+    // div.style.overflowX = 'scroll';
+    div.style.overflow = 'scroll'
 
     const addSomething = document.createElement('p');
     addSomething.classList.add('text');
@@ -50,15 +53,34 @@ addBtn.addEventListener('click', () => {
 
 
 spin.addEventListener('click', () => {
-    const boxes = document.querySelectorAll('p');
-    if (boxes.length === 0) return;
+    const boxes = child1.querySelectorAll('.box');
+
+    if (boxes.length === 0) {
+        console.log('you have nothing to return');
+
+        const some = document.createElement('div');
+        some.textContent = 'you have not created anything to spin';
+        some.style.backgroundColor = '#f38ba8';
+        some.style.color = '#11111b';
+        some.style.padding = '10px';
+        some.style.marginTop = '10px';
+        some.style.borderRadius = '8px';
+
+        child1.appendChild(some);
+
+        setTimeout(() => {
+            some.remove();
+        }, 2000);
+
+        return;
+    }
 
     const randomIndex = Math.floor(Math.random() * boxes.length);
     const selectedBox = boxes[randomIndex];
 
     console.log("You get:", selectedBox.textContent);
 
-    document.querySelectorAll('.box').forEach(box => {
+    boxes.forEach(box => {
         box.style.width = '100px';
         box.style.height = '100px';
         box.style.backgroundColor = '#181825';
@@ -66,11 +88,9 @@ spin.addEventListener('click', () => {
         box.style.fontSize = '';
     });
 
-    const targetDiv = selectedBox.parentNode;
-
-    targetDiv.style.width = '200px';
-    targetDiv.style.height = '200px';
-    targetDiv.style.backgroundColor = '#cba6f7';
-    targetDiv.style.color = '#11111b';
-    targetDiv.style.fontSize = '50px';
+    selectedBox.style.width = '200px';
+    selectedBox.style.height = '200px';
+    selectedBox.style.backgroundColor = '#cba6f7';
+    selectedBox.style.color = '#11111b';
+    selectedBox.style.fontSize = '50px';
 });
