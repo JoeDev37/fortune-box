@@ -7,12 +7,9 @@
 </head>
 <body>
 
-
     <div class="container">
 
-        <div id="child1" class="child1">
-            <!-- <h1>whatever</h1> -->
-        </div>
+        <div id="child1" class="child1"></div>
 
         <div class="child2">
             <h1></h1>
@@ -20,8 +17,8 @@
             <div class="mlmlml">
                 <input type="text" id="input">
             </div>
+
             <div class="button">
-                
                 <button id="addBtn">Add</button>
                 <button id="spin">Spin</button>
             </div>
@@ -29,6 +26,12 @@
 
     </div>
 
+    <div id="overlay" class="overlay">
+        <div class="popup">
+            <button id="closePopup" class="close">&times;</button>
+            <h2 id="popupText"></h2>
+        </div>
+    </div>
 
     <script src="main.js"></script>
     

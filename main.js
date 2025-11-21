@@ -1,4 +1,3 @@
-
 document.title = "fortune box";
 
 const spin = document.getElementById('spin');
@@ -6,12 +5,29 @@ const addBtn = document.getElementById('addBtn');
 const child1 = document.getElementById('child1');
 const input = document.getElementById('input');
 
+const overlay = document.getElementById('overlay');
+const popupText = document.getElementById('popupText');
+const closePopup = document.getElementById('closePopup');
+
+function showPopup(message) {
+    popupText.textContent = message;
+    overlay.style.display = 'flex';
+}
+
+closePopup.addEventListener('click', () => {
+    overlay.style.display = 'none';
+});
+
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        overlay.style.display = 'none';
+    }
+});
 
 addBtn.addEventListener('click', () => {
 
     const div = document.createElement('div');
     div.className = 'box';
-    div.classList.add('selectedDiv');
 
     const closeBtn = document.createElement('button')
     closeBtn.classList.add('close-btn');
@@ -19,17 +35,7 @@ addBtn.addEventListener('click', () => {
 
     closeBtn.addEventListener('click', () => {
         div.remove();
-    })
-
-    div.style.background = '#181825';
-    div.style.color = '#cdd6f4'
-    div.style.borderRadius = '10px';
-    div.style.outline = '1px solid #cba6f7'
-    div.style.width = '100px';
-    div.style.height = '100px';
-    div.style.margin = '10px';
-    // div.style.overflowX = 'scroll';
-    div.style.overflow = 'scroll'
+    });
 
     const addSomething = document.createElement('p');
     addSomething.classList.add('text');
@@ -38,10 +44,24 @@ addBtn.addEventListener('click', () => {
     addSomething.style.margin = '0';
     addSomething.style.textAlign = 'center';
 
-    if (input.value == '') {
-        addSomething.textContent = 'WTF nigga type something!!';
-        div.style.color = '#f38ba8';
+    if (input.value.trim() === '') {
+        const warn = document.createElement('div');
+        warn.textContent = 'Empty input. Try again.';
+        warn.style.backgroundColor = '#f38ba8';
+        warn.style.color = '#11111b';
+        warn.style.padding = '10px';
+        warn.style.marginTop = '10px';
+        warn.style.borderRadius = '8px';
+
+        child1.appendChild(warn);
+
+        setTimeout(() => {
+            warn.remove();
+        }, 2000);
+
+        return;
     }
+
 
     div.appendChild(addSomething);
     div.appendChild(closeBtn);
@@ -50,16 +70,12 @@ addBtn.addEventListener('click', () => {
     input.value = '';
 });
 
-
-
 spin.addEventListener('click', () => {
     const boxes = child1.querySelectorAll('.box');
 
     if (boxes.length === 0) {
-        console.log('you have nothing to return');
-
         const some = document.createElement('div');
-        some.textContent = 'you have not created anything to spin';
+        some.textContent = 'No items to spin.';
         some.style.backgroundColor = '#f38ba8';
         some.style.color = '#11111b';
         some.style.padding = '10px';
@@ -78,8 +94,6 @@ spin.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * boxes.length);
     const selectedBox = boxes[randomIndex];
 
-    console.log("You get:", selectedBox.textContent);
-
     boxes.forEach(box => {
         box.style.width = '100px';
         box.style.height = '100px';
@@ -88,9 +102,10 @@ spin.addEventListener('click', () => {
         box.style.fontSize = '';
     });
 
-    selectedBox.style.width = '200px';
-    selectedBox.style.height = '200px';
     selectedBox.style.backgroundColor = '#cba6f7';
     selectedBox.style.color = '#11111b';
-    selectedBox.style.fontSize = '50px';
+
+    const onlyText = selectedBox.querySelector('.text').textContent;
+
+    showPopup(onlyText);
 });
