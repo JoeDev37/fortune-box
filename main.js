@@ -22,7 +22,7 @@ addBtn.addEventListener('click', () => {
     })
 
     div.style.background = '#181825';
-    // div.style.color = '#cdd6f4'
+    div.style.color = '#cdd6f4'
     div.style.borderRadius = '10px';
     div.style.outline = '1px solid #cba6f7'
     div.style.width = '100px';
