@@ -106,8 +106,7 @@ spin.addEventListener('click', () => {
     selectedBox.style.color = '#11111b';
 
     const onlyText = selectedBox.querySelector('.text').textContent;
-
-    // 🎉 Trigger confetti right when a box is chosen
+    
     confetti({
         particleCount: 300,
         spread: 120,
