@@ -104,6 +104,8 @@ h1 {
     height: 100px;
     margin: 10px;
     position: relative;
+    position: relative;
+    z-index: 1
 }
 
 .close-btn {
@@ -160,3 +162,13 @@ h1 {
     cursor: pointer;
     font-size: 18px;
 }
+
+canvas {
+    position: fixed !important;
+    inset: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none !important;
+    z-index: 999999 !important;
+}
+

@@ -107,5 +107,13 @@ spin.addEventListener('click', () => {
 
     const onlyText = selectedBox.querySelector('.text').textContent;
 
+    // 🎉 Trigger confetti right when a box is chosen
+    confetti({
+        particleCount: 300,
+        spread: 120,
+        angle: 60,
+        origin: { x: 0.5, y: 0.5 }
+    });
+
     showPopup(onlyText);
 });
